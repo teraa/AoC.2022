@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4E1B9B70-631D-469E-BC74-BD5629DE3EC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Puzzles", "Puzzles", "{7A17ABC2-2615-451E-8BAF-D67C85FE6ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC.Template", "Puzzles\Template\AoC.Template.csproj", "{975176E9-7688-4DFE-825E-CBE24F0AF4E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,18 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E1B9B70-631D-469E-BC74-BD5629DE3EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E1B9B70-631D-469E-BC74-BD5629DE3EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E1B9B70-631D-469E-BC74-BD5629DE3EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E1B9B70-631D-469E-BC74-BD5629DE3EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{975176E9-7688-4DFE-825E-CBE24F0AF4E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975176E9-7688-4DFE-825E-CBE24F0AF4E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975176E9-7688-4DFE-825E-CBE24F0AF4E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975176E9-7688-4DFE-825E-CBE24F0AF4E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{975176E9-7688-4DFE-825E-CBE24F0AF4E7} = {7A17ABC2-2615-451E-8BAF-D67C85FE6ACF}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Teraa",
+  "classifications": [ "Console", "AoC 2022" ],
+  "identity": "Teraa.AoC.2022.Template",
+  "name": "Advent of Code 2022 Puzzle Project",
+  "defaultName": "Day",
+  "shortName": "aoc2022",
+  "sourceName": "AoC.Template",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true
+}
