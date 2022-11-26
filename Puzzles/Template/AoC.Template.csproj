@@ -8,4 +8,9 @@
     <StartWorkingDirectory>.</StartWorkingDirectory>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj"/>
+    <Using Include="Common"/>
+  </ItemGroup>
+
 </Project>
