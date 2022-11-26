@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj"/>
-    <Using Include="Common"/>
+    <Using Include="Common.Extensions" Static="True"/>
   </ItemGroup>
 
 </Project>
