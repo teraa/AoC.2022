@@ -1,4 +1,1 @@
-SetInput();
-
-while (Console.ReadLine() is { } line)
-    ;
+var input = GetInput();
