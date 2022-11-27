@@ -7,12 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC.Template", "Template\AoC.Template.csproj", "{E05A895B-045A-419D-B3AC-9B97EE04079B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Puzzles", "Puzzles", "{3898A9EB-79E4-41F3-A8FB-5408E59F67BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.a", "Day01.a\Day01.a.csproj", "{2E132578-01F5-4CFD-B733-84B36A0DA1AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.b", "Day01.b\Day01.b.csproj", "{91541775-A810-472C-9D91-62E478B8E69B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,17 +24,5 @@ Global
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E132578-01F5-4CFD-B733-84B36A0DA1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E132578-01F5-4CFD-B733-84B36A0DA1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E132578-01F5-4CFD-B733-84B36A0DA1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E132578-01F5-4CFD-B733-84B36A0DA1AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91541775-A810-472C-9D91-62E478B8E69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91541775-A810-472C-9D91-62E478B8E69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91541775-A810-472C-9D91-62E478B8E69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91541775-A810-472C-9D91-62E478B8E69B}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{2E132578-01F5-4CFD-B733-84B36A0DA1AB} = {3898A9EB-79E4-41F3-A8FB-5408E59F67BE}
-		{91541775-A810-472C-9D91-62E478B8E69B} = {3898A9EB-79E4-41F3-A8FB-5408E59F67BE}
 	EndGlobalSection
 EndGlobal
