@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj"/>
     <Using Include="Common.Extensions" Static="True"/>
+    <Using Include="System.Console" Static="True"/>
   </ItemGroup>
 
 </Project>

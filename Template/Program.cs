@@ -1,1 +1,1 @@
-var input = GetInput();
+foreach (var line in GetInput()) { }
