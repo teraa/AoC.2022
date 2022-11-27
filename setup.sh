@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-year=2021
-
 add() {
   set_vars
   echo "Adding $prefix"
@@ -36,9 +34,12 @@ set_vars() {
   printf -v prefix "Day%02d" $day
 }
 
-while getopts "a:r:" arg; do
+: ${year:=2022}
+
+while getopts "a:r:y:" arg; do
   case $arg in
     a) add;;
     r) remove;;
+    y) year=$OPTARG;;
   esac
 done
