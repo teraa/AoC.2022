@@ -10,6 +10,9 @@ public static class Extensions
     [Conditional("DEBUG")]
     public static void SetDebugInput(string filePath = s_defaultFile)
     {
+        if (Console.IsInputRedirected)
+            return;
+
         var file = File.OpenText(filePath);
         Console.SetIn(file);
     }
