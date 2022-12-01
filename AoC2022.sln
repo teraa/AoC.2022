@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC.Template", "Template\AoC.Template.csproj", "{E05A895B-045A-419D-B3AC-9B97EE04079B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Puzzles", "Puzzles", "{C53C6E2A-F4C5-471D-A0FE-6D56CBC6EF6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.a", "Day01.a\Day01.a.csproj", "{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.b", "Day01.b\Day01.b.csproj", "{25747717-2320-48CE-91FF-85B4E4B4FBAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E05A895B-045A-419D-B3AC-9B97EE04079B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25747717-2320-48CE-91FF-85B4E4B4FBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25747717-2320-48CE-91FF-85B4E4B4FBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25747717-2320-48CE-91FF-85B4E4B4FBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25747717-2320-48CE-91FF-85B4E4B4FBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58D01A0A-54ED-4476-BA0A-FAB7CE7F236A} = {C53C6E2A-F4C5-471D-A0FE-6D56CBC6EF6A}
+		{25747717-2320-48CE-91FF-85B4E4B4FBAE} = {C53C6E2A-F4C5-471D-A0FE-6D56CBC6EF6A}
 	EndGlobalSection
 EndGlobal
