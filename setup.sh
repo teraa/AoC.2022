@@ -11,10 +11,11 @@ add() {
     dotnet sln add $project -s Puzzles
   done
 
-  # .cookie file format
+  # .headers file format
   # Cookie: <cookie>
+  # user-agent: <user agent>
 
-  curl "https://adventofcode.com/$year/day/$day/input" -H @.cookie -sSL \
+  curl "https://adventofcode.com/$year/day/$day/input" -H @.headers -sSL \
   | tee $prefix.{a,b}/input.txt 1> /dev/null
 
   git add $prefix.{a,b}
