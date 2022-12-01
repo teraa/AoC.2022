@@ -1,18 +1,6 @@
-int max = 0;
-int current = 0;
+int sum = GetInput()
+    .ChunkBy(x => x == "")
+    .Select(x => x.Sum(int.Parse))
+    .Max();
 
-foreach (var line in GetInput())
-{
-    if (line.Length == 0)
-    {
-        current = 0;
-    }
-    else
-    {
-        current += int.Parse(line);
-        if (current > max)
-            max = current;
-    }
-}
-
-WriteLine(max);
+WriteLine(sum);
