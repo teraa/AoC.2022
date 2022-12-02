@@ -25,25 +25,33 @@ public static class Extensions
             yield return line;
     }
 
-    public static IEnumerable<IReadOnlyList<T>> ChunkBy<T>(this IEnumerable<T> source, Func<T, bool> predicate)
-    {
-        List<T>? list = null;
+    public static IEnumerable<IReadOnlyList<T>> ChunkBy<T>(this IEnumerable<T> source, T separator)
+        where T : IEquatable<T>
+        => ChunkBy(source, separator.Equals);
 
-        using var e = source.GetEnumerator();
-        bool hasNext;
-        do
+    public static IEnumerable<IReadOnlyList<T>> ChunkBy<T>(this IEnumerable<T> source, Func<T, bool> predicate, bool keepSeparator = false)
+    {
+        List<T>? chunk = null;
+        IReadOnlyList<T> empty = Array.Empty<T>();
+
+        foreach (var element in source)
         {
-            hasNext = e.MoveNext();
-            if (!hasNext || predicate(e.Current))
+            if (predicate(element))
             {
-                yield return list ?? (IReadOnlyList<T>) Array.Empty<T>();
-                list = null;
+                if (keepSeparator)
+                {
+                    (chunk ??= new()).Add(element);
+                }
+
+                yield return chunk ?? empty;
+                chunk = null;
             }
             else
             {
-                list ??= new();
-                list.Add(e.Current);
+                (chunk ??= new()).Add(element);
             }
-        } while (hasNext);
+        }
+
+        yield return chunk ?? empty;
     }
 }

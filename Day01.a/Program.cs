@@ -1,5 +1,5 @@
 int sum = GetInput()
-    .ChunkBy(x => x == "")
+    .ChunkBy("")
     .Select(x => x.Sum(int.Parse))
     .Max();
 
