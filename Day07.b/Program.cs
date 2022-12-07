@@ -89,10 +89,12 @@ class File : INode
 
 class Directory : INode
 {
+    private long? _size;
+
     public required string Name { get; init; }
     public required Directory? Parent { get; init; }
     public List<INode> Nodes { get; } = new();
 
     public long GetSize()
-        => Nodes.Sum(x => x.GetSize());
+        => _size ??= Nodes.Sum(x => x.GetSize());
 }
