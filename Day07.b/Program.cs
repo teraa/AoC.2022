@@ -47,13 +47,13 @@ long required = 30_000_000 - 70_000_000 + root.TotalSize();
 WriteLine(Min(root, required));
 
 
-static long Min(Node dir, long required)
+static long Min(Node node, long required)
 {
-    long min = dir.TotalSize();
+    long min = node.TotalSize();
 
-    foreach (var d in dir.Children)
+    foreach (var n in node.Children)
     {
-        long m = Min(d, required);
+        long m = Min(n, required);
         if (min > m && m >= required)
             min = m;
     }
