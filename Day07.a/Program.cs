@@ -1,4 +1,4 @@
-var root = new Directory
+var root = new Node
 {
     Name = "/",
     Parent = null,
@@ -21,82 +21,54 @@ foreach (ReadOnlySpan<char> line in GetInput())
         else
         {
             var name = path.ToString();
-            var dir = cwd.Nodes
-                .OfType<Directory>()
-                .First(x => x.Name == name);
-
-            cwd = dir;
+            cwd = cwd.Children.First(x => x.Name == name);
         }
     }
     else if (line[0] != '$')
     {
-        INode node;
-
         if (line.StartsWith("dir "))
         {
-            node = new Directory
+            var node = new Node
             {
                 Name = line[4..].ToString(),
                 Parent = cwd,
             };
+            cwd.Children.Add(node);
         }
         else
         {
-            int i = line.IndexOf(' ');
-            node = new File
-            {
-                Name = line[(i + 1)..].ToString(),
-                Size = long.Parse(line[..i]),
-            };
+            cwd.FilesSize += long.Parse(line[..(line.IndexOf(' '))]);
         }
-
-        cwd.Nodes.Add(node);
     }
 }
 
-WriteLine(Sum100k(root));
+WriteLine(Sum(root));
 
-long Sum100k(Directory dir)
+
+static long Sum(Node node)
 {
     const long max = 100_000;
     long sum = 0;
 
-    var size = dir.GetSize();
+    var size = node.TotalSize();
     if (size < max)
         sum += size;
 
-    foreach (var subDir in dir.Nodes.OfType<Directory>())
+    foreach (var child in node.Children)
     {
-        sum += Sum100k(subDir);
+        sum += Sum(child);
     }
 
     return sum;
 }
 
-interface INode
-{
-    string Name { get; }
-
-    long GetSize();
-}
-
-class File : INode
+class Node
 {
     public required string Name { get; init; }
-    public required long Size { get; init; }
+    public required Node? Parent { get; init; }
+    public long FilesSize { get; set; }
+    public List<Node> Children { get; } = new();
 
-    public long GetSize()
-        => Size;
-}
-
-class Directory : INode
-{
-    private long? _size;
-
-    public required string Name { get; init; }
-    public required Directory? Parent { get; init; }
-    public List<INode> Nodes { get; } = new();
-
-    public long GetSize()
-        => _size ??= Nodes.Sum(x => x.GetSize());
+    public long TotalSize()
+        => FilesSize + Children.Sum(x => x.TotalSize());
 }
