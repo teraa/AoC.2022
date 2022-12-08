@@ -1,73 +1,35 @@
-var root = new Node
-{
-    Name = "/",
-    Parent = null,
-};
-var cwd = root;
+using var enumerator = GetInput().GetEnumerator();
+var sizes = new List<long>();
+long required = GetSize() - 40_000_000;
+long result = sizes
+    .Order()
+    .First(x => x >= required);
 
-foreach (ReadOnlySpan<char> line in GetInput())
+WriteLine(result);
+
+
+long GetSize()
 {
-    if (line.StartsWith("$ cd "))
+    long size = 0;
+
+    while (enumerator.MoveNext())
     {
-        var path = line[5..];
-        if (path is "..")
+        var line = enumerator.Current.AsSpan();
+
+        if (line.StartsWith("$ cd "))
         {
-            cwd = cwd.Parent!;
+            var path = line[5..];
+            if (path is "..")
+                break;
+            if (path is not "/")
+                size += GetSize();
         }
-        else if (path is "/")
+        else if (line[0] is >= '0' and <= '9')
         {
-            cwd = root;
-        }
-        else
-        {
-            var name = path.ToString();
-            cwd = cwd.Children.First(x => x.Name == name);
+            size += long.Parse(line[..(line.IndexOf(' '))]);
         }
     }
-    else if (line[0] != '$')
-    {
-        if (line.StartsWith("dir "))
-        {
-            var node = new Node
-            {
-                Name = line[4..].ToString(),
-                Parent = cwd,
-            };
-            cwd.Children.Add(node);
-        }
-        else
-        {
-            cwd.FilesSize += long.Parse(line[..(line.IndexOf(' '))]);
-        }
-    }
-}
 
-long required = 30_000_000 - 70_000_000 + root.TotalSize();
-
-WriteLine(Min(root, required));
-
-
-static long Min(Node node, long required)
-{
-    long min = node.TotalSize();
-
-    foreach (var n in node.Children)
-    {
-        long m = Min(n, required);
-        if (min > m && m >= required)
-            min = m;
-    }
-
-    return min;
-}
-
-class Node
-{
-    public required string Name { get; init; }
-    public required Node? Parent { get; init; }
-    public long FilesSize { get; set; }
-    public List<Node> Children { get; } = new();
-
-    public long TotalSize()
-        => FilesSize + Children.Sum(x => x.TotalSize());
+    sizes.Add(size);
+    return size;
 }
