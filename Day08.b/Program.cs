@@ -12,8 +12,8 @@ for (int j = 0; j <= maxj; j++)
         string col = new string(input.Select(line => line[i]).ToArray());
 
         int im = row[..i].Reverse().TakeWhile(x => x < c).Count();
-        int ip = row[(i + 1)..].TakeWhile(x => x < c).Count();
         int jm = col[..j].Reverse().TakeWhile(x => x < c).Count();
+        int ip = row[(i + 1)..].TakeWhile(x => x < c).Count();
         int jp = col[(j + 1)..].TakeWhile(x => x < c).Count();
 
         if (i - im > 1) im++;

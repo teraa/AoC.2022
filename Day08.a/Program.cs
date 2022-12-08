@@ -10,8 +10,8 @@ for (int y = 0; y < input.Count; y++)
         string col = new string(input.Select(line => line[x]).ToArray());
 
         if (row[..x].All(e => e < c) ||
-            row[(x + 1)..].All(e => e < c) ||
             col[..y].All(e => e < c) ||
+            row[(x + 1)..].All(e => e < c) ||
             col[(y + 1)..].All(e => e < c))
             result++;
     }
