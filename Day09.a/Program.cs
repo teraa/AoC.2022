@@ -1,9 +1,8 @@
 using System.Numerics;
 
-var start = Vector2.Zero;
-var head = start;
+var head = Vector2.Zero;
 var tail = head;
-var visited = new HashSet<Vector2> { start };
+var visited = new HashSet<Vector2>();
 
 foreach (ReadOnlySpan<char> line in GetInput())
 {

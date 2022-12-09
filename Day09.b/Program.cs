@@ -1,8 +1,7 @@
 using System.Numerics;
 
-var start = Vector2.Zero;
-var knots = Enumerable.Repeat(start, 10).ToArray();
-var visited = new HashSet<Vector2> { start };
+var knots = Enumerable.Repeat(Vector2.Zero, 10).ToArray();
+var visited = new HashSet<Vector2>();
 
 foreach (ReadOnlySpan<char> line in GetInput())
 {
